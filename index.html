@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png">
     <title>HTML CHALLENGE</title>
 </head>
 <body>
+    <div class="wrapper">
+        <div class="loader"></div>
+    </div>
     <h1>Mes favoris</h1>
     <h2>Couleur</h2>
     <ol>
@@ -36,9 +40,29 @@
         h1 {
             text-align: center;
         }
-        h2, li {
+        h1, h2, li {
             font-family: 'Courier New', Courier, monospace;
         }
+        .wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: #fff;
+            display: grid;
+            place-items: center;
+            transition: oppacity .25s, visibility 1s;
+        }
+        .fade {
+            opacity: 0;
+            visibility: hidden;
+        }
     </style>
+    <script>
+        const fadeOut = () => {
+            const loaderWrapper = document.querySelector('.wrapper');
+            loaderWrapper.classList.add('fade')
+        }
+        window.addEventListener('load', fadeOut)
+    </script>
 </body>
 </html>
